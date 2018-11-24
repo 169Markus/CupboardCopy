@@ -4,8 +4,8 @@ let ingredients;
 let recipes;
 
 async function init() {
-	ingredients = await fetch("./ingredients.js").then(r => r.json());
-	recipes = await fetch("./recipes.js").then(r => r.json());
+	ingredients = await fetch("./ingredients.json").then(r => r.json());
+	recipes = await fetch("./recipes.json").then(r => r.json());
 }
 
 // Function
