@@ -9,7 +9,7 @@ async function init() {
 }
 
 // Function
-// cupboard = ["Pork", "Chicken", "Pasta", "Pasta Sauce"]
+// cupboard = cupboard = ["Pork", "Chicken", "Pasta", "Pasta Sauce"]
 function findRecipes(cupboard) {
 	let recipefound = new Array (501);
 	for (let element in recipefound){
