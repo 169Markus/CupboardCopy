@@ -9,11 +9,26 @@ async function init() {
 }
 
 // Function
-// cupboard = ["Pork", "Chicken", "Pasta", "Pasta Sauce"]
+// cupboard = cupboard = ["Pork", "Chicken", "Pasta", "Pasta Sauce"]
 function findRecipes(cupboard) {
-	
-	
-	
+	let recipefound = new Array (501);
+	for (let element in recipefound){
+		recipefound[element] = [];
+	}
+	for (let recipe of recipes){
+		let wrong = 0;
+		recipe.nothave = [];
+		for (let ingredient of recipe.ingredients){
+			if (! cupboard.includes(ingredients[ingredient.sku])){
+				wrong++;
+				recipe.nothave.push(ingredients[ingredient.sku]);
+			}
+			
+		}
+		recipefound[wrong].push(recipe);
+	}
+
+	return recipefound.flat();
 }
 
 init();
