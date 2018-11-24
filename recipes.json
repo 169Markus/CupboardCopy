@@ -1,0 +1,23 @@
+[
+	{
+		"name": "Chicken Pasta",
+		"ingredients": [
+			{ "sku": "2" },
+			{ "sku": "3" },
+			{ "sku": "5" }
+		]
+	},
+	{
+		"name": "Pork",
+		"ingredients": [
+			{ "sku": "1" }
+		]
+	},
+	{
+		"name": "Chicken Rice",
+		"ingredients": [
+			{ "sku": "2" },
+			{ "sku": "4" }
+		]
+	}
+]
