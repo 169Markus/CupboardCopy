@@ -1,3 +1,18 @@
-<script src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
-<script src="recipeFinder.js"></script>
-<script src="image.js"></script>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
+	<link href="style.css" rel="stylesheet"></script>
+</head>
+<body>
+	<div id="main">
+		<p class="huge text" style="margin-bottom: 5vw;">Shelf Sufficient</p>
+		<div id="cupboard">
+			<p class="big text" style="margin-top: 20%;">Upload an Image</p>
+			<input type="file" id="file" accept="image/*" class="centre"></input>
+		</div>
+		<div id="things"></div>
+		<div id="meals"></div>
+	</div>
+	<script src="request.js"></script>
+	<script src="recipeFinder.js"></script>
+	<script src="control.js"></script>
+</body>

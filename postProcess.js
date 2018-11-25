@@ -11,11 +11,9 @@ const keywords = [
 	["Sausage", "Chorizo", "Salami", "Halal", "Deli"],
 	["Burger", "Jamaican"],
 	["Fish", "Seafood", "Cod", "Haddock", "Mackerel", "Salmon", "Trout"],
-	["Fruit, Nut", "Fruit & Nut", "Berries", "Dried Fruit", "Nuts", "Seeds"],
-	["Banana"],
-	["Apple", "Pear"],
+	["Fruit, Nut", "Fruit & Nut", "Berries", "Dried Fruit", "Nuts", "Seeds", "Apricot"],
+	["Apple", "Pear", "Plum"],
 	["Orange", "Lemon", "Citrus"],
-	["Plum", "Apricot"],
 	["Melon", "Grape"],
 	["Peach", "Nectarine", "Mango", "Kiwi"],
 	["Potato"],
@@ -28,7 +26,6 @@ const keywords = [
 	["Chilli"],
 	["Tomato", "Pizza Sauce"],
 	["Peppers"],
-	["Avocado"],
 	["Organic Salad", "Salad Pots"],
 	["Milk"],
 	["Butter"],
@@ -48,7 +45,7 @@ const keywords = [
 	["Chocolate"],
 	["Christmas Cooking Ingredients", "Herb", "Spice", "Seasonings", "Speciality Ingredients"],
 	["Cereals", "Granola", "Muesli", "Oats", "Porridge"],
-	["Tins", "Cans"],
+	["Tin", "Can"],
 	["Baking", "baking", "Flour"],
 	["Beer"],
 	["Coffee", "Tea"],
@@ -175,4 +172,14 @@ async function fileNames() {
 	let lines = Object.entries(ingredients).filter(e => e[1].cats.length).map(e => `${e[0]},${e[1].img}`);
 	
 	saveRaw(lines.join('\r\n'), 'files.txt');
+}
+
+async function gcImages() {
+	ingredients = await fetch("./combinedIngredients.json").then(r => r.json());
+	
+	let filtered = Object.entries(ingredients).filter(e => e[1].cats.length);
+	
+	let lines = filtered.map(e => `gs://cupboard-1-vcm/Images/${e[0]}.jpg,${e[1].cats.join(',')}`);
+	
+	saveRaw(lines.join('\r\n'), 'images.csv');
 }

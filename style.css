@@ -1,0 +1,16 @@
+* { display:block; box-sizing : border-box; font-family: Nunito; }
+
+body { background-color: #EEE; min-height: 100vh; padding: 5vw; }
+
+#main { width: 100%; margin-bottom: 50vw; background-color: #FFF; padding: 5vw; }
+
+#cupboard { width: 100%; height: 50vw; background-color: #DDD; padding: 2vw; }
+
+.text { color: #AAA; text-align: center; margin: 0px; }
+
+.big { font-size: 50px; }
+.huge { font-size: 70px; }
+
+.centre { margin: auto; }
+
+.fill { left = 0; top = 0; width: 100%; height: 100%; }
