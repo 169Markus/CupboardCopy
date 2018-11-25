@@ -106,6 +106,19 @@ function save(json, name) {
 	link.dispatchEvent(event);
 }
 
+function saveRaw(text, name) {
+	const encoded = new Uint8Array([...text].map(s => s.charCodeAt(0)));
+	const blob = new Blob([encoded], {
+		type: 'application/octet-stream'
+	});
+	const link = document.createElement('A');
+	link.setAttribute('href', URL.createObjectURL(blob));
+	link.setAttribute('download', name);
+	const event = document.createEvent('MouseEvents');
+	event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+	link.dispatchEvent(event);
+}
+
 async function reduce() {
 	let allcats = await fetch("./categories.json").then(r => r.json());
 	ingredients = await fetch("./ingredients.json").then(r => r.json());
@@ -159,11 +172,7 @@ async function combine() {
 async function fileNames() {
 	ingredients = await fetch("./combinedIngredients.json").then(r => r.json());
 	
-	let files = {};
+	let lines = Object.entries(ingredients).filter(e => e[1].cats.length).map(e => `${e[0]},${e[1].img}`);
 	
-	for (let id in ingredients) {
-		files[id] = ingredients[id].img;
-	}
-	
-	save(files, 'files');
+	saveRaw(lines.join('\r\n'), 'files.txt');
 }
