@@ -30,7 +30,7 @@ function findID(id) {
 
 // Function
 // cupboard = cupboard = [4, 2, 34, 23]
-function findRecipes(cupboard) {
+function findRecipes(...cupboard) {
 	for (let recipe of recipes){
 		recipe.nothave = [];
 		for (let ingredient of recipe.ingredients){
